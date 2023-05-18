@@ -58,7 +58,7 @@ fetch('books.json') // あなたのJSONデータのURLをここに書きます
 
       const divKindle = document.createElement('div');
       divKindle.classList.add('word-item__tags');
-      divKindle.innerHTML = 'Kindle: <a href="kindle://book?action=open' + book.kindle + '"></a>';
+      divKindle.innerHTML = '<a href="kindle://book?action=open' + book.kindle + '">Kindle</a>';
 
       div.appendChild(h2);
       div.appendChild(divTitle);
