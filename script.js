@@ -56,10 +56,15 @@ fetch('books.json') // あなたのJSONデータのURLをここに書きます
       divTags.classList.add('word-item__tags');
       divTags.innerHTML = 'タグ: <span>' + book.tags.join('. ') + '</span>';
 
+      const divKindle = document.createElement('div');
+      divKindle.classList.add('word-item__tags');
+      divKindle.innerHTML = 'Kindle: <a href="kindle://book?action=open' + book.kindle + '"></a>';
+
       div.appendChild(h2);
       div.appendChild(divTitle);
       div.appendChild(divPages);
       div.appendChild(divTags);
+      div.appendChild(divKindle);
 
       bookContainer.appendChild(div);
   });
@@ -74,8 +79,9 @@ input.addEventListener('keyup', function() {
         const title = book.getElementsByClassName('word-item__book')[0].innerText.toLowerCase();
         const pages = book.getElementsByClassName('word-item__pages')[0].innerText.toLowerCase();
         const tags = book.getElementsByClassName('word-item__tags')[0].innerText.toLowerCase();
+        const kindle = book.getElementsByClassName('word-item__kindle')[0].innerText.toLowerCase();
 
-        const bookData = heading + ' ' + title + ' ' + pages + ' ' + tags;
+        const bookData = heading + ' ' + title + ' ' + pages + ' ' + tags; + ' ' + book;
 
         if (queries.every(query => bookData.includes(query))) {
             book.style.display = 'block';
