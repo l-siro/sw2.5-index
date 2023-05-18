@@ -28,6 +28,18 @@ window.onload = function() {
 }
 
 
+//update-logの開閉処理
+const updateLogTtl = document.getElementsByClassName('update-log__ttl');
+const updateLogBody = document.getElementsByClassName('update-log__body');
+
+for (let i = 0; i < updateLogTtl.length; i++) {
+  updateLogTtl[i].addEventListener('click', function() {
+    updateLogBody[i].classList.toggle('is-open');
+  });
+}
+
+
+
 const input = document.getElementById('searchInput');
 const bookContainer = document.getElementById('bookContainer');
 
