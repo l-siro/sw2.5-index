@@ -1,4 +1,3 @@
-
 document.body.style.display = 'none';
 window.onload = function() {
   var UserInput = null;
