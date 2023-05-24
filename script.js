@@ -40,65 +40,72 @@ for (let i = 0; i < updateLogTtl.length; i++) {
 
 
 const input = document.getElementById('searchInput');
-const bookContainer = document.getElementById('bookContainer');
+const dataContainer = document.getElementById('dataContainer');
 
 // データをローカルストレージから取得
-fetch('books.json') // あなたのJSONデータのURLをここに書きます
-    .then(response => response.json())
-    .then(books => {
-  // データをDOMに描画
-  books.forEach(book => {
+fetch('datas.json') // あなたのJSONデータのURLをここに書きます
+  .then(response => response.json())
+  .then(datas => {
+    // データをDOMに描画
+    datas.forEach(data => {
       const div = document.createElement('div');
       div.classList.add('word-item');
 
       const h2 = document.createElement('h2');
       h2.classList.add('word-item__ttl');
-      h2.innerText = book.heading;
+      h2.innerText = data.heading;
+      div.appendChild(h2);
 
-      const divTitle = document.createElement('div');
-      divTitle.classList.add('word-item__book');
-      divTitle.innerText = book.title;
+      // booksをループする
+      data.books.forEach(book => {
+        let bookContent;
+        if (book.title === 'SW2.5 ルールブックⅠ') {
+          bookContent = '<img class="icon" src="img/251.svg">&nbsp;';
+        } else if (book.title === 'SW2.5 ルールブックⅡ') {
+          bookContent = '<img class="icon" src="img/252.svg">&nbsp;';
+        } else if (book.title === 'SW2.5 ルールブックⅢ') {
+          bookContent = '<img class="icon" src="img/253.svg">&nbsp;';
+        } else {
+          bookContent = '<span class="ttl">'+ book.title + '...</span>';
+        }
 
-      const divPages = document.createElement('div');
-      divPages.classList.add('word-item__pages');
-      divPages.innerHTML = 'ページ: <span>' + book.pages.join('. ') + '</span>';
+        const divPages = document.createElement('div');
+        divPages.classList.add('word-item__pages');
+        divPages.innerHTML = bookContent + ' <span>' + book.pages.join('. ') + '</span>';
+        div.appendChild(divPages);
+      });
 
       const divTags = document.createElement('div');
       divTags.classList.add('word-item__tags');
-      divTags.innerHTML = 'タグ: <span>' + book.tags.join('. ') + '</span>';
+      divTags.innerHTML = 'タグ: <span>' + data.tags.join('. ') + '</span>';
+      div.appendChild(divTags);
 
       const divKindle = document.createElement('div');
       divKindle.classList.add('word-item__kindle');
-      divKindle.innerHTML = '<a href="kindle://book?action=open' + book.kindle + '">Kindle</a>';
-
-      div.appendChild(h2);
-      div.appendChild(divTitle);
-      div.appendChild(divPages);
-      div.appendChild(divTags);
+      divKindle.innerHTML = '<a href="kindle://book?action=open' + data.kindle + '">Kindle</a>';
       div.appendChild(divKindle);
 
-      bookContainer.appendChild(div);
-  });
+      dataContainer.appendChild(div);
+    });
 
-// 検索機能を設定
-input.addEventListener('keyup', function() {
+  // 検索機能を設定
+  input.addEventListener('keyup', function() {
     // 入力されたクエリを半角スペースと全角スペースで分割
     const queries = this.value.toLowerCase().split(/[\s　]+/);
 
-    Array.from(bookContainer.getElementsByClassName('word-item')).forEach(book => {
-        const heading = book.getElementsByClassName('word-item__ttl')[0].innerText.toLowerCase();
-        const title = book.getElementsByClassName('word-item__book')[0].innerText.toLowerCase();
-        const pages = book.getElementsByClassName('word-item__pages')[0].innerText.toLowerCase();
-        const tags = book.getElementsByClassName('word-item__tags')[0].innerText.toLowerCase();
-        const kindle = book.getElementsByClassName('word-item__kindle')[0].innerText.toLowerCase();
+    Array.from(dataContainer.getElementsByClassName('word-item')).forEach(data => {
+      const heading = data.getElementsByClassName('word-item__ttl')[0].innerText.toLowerCase();
+      const pages = data.getElementsByClassName('word-item__pages')[0].innerText.toLowerCase();
+      const tags = data.getElementsByClassName('word-item__tags')[0].innerText.toLowerCase();
+      const kindle = data.getElementsByClassName('word-item__kindle')[0].innerText.toLowerCase();
 
-        const bookData = heading + ' ' + title + ' ' + pages + ' ' + tags + ' ' + kindle;
+      const dataData = heading + ' ' + pages + ' ' + tags + ' ' + kindle;
 
-        if (queries.every(query => bookData.includes(query))) {
-            book.style.display = 'block';
-        } else {
-            book.style.display = 'none';
-        }
+      if (queries.every(query => dataData.includes(query))) {
+          data.style.display = 'block';
+      } else {
+          data.style.display = 'none';
+      }
     });
-});
+  });
 });

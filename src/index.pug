@@ -16,12 +16,10 @@ html
       .update-log
         h2.update-log__ttl ▼ 対応状況 ＆ 更新ログ
         .update-log__body
-          p 対応状況:ルールブックⅠの一般索引と魔法索引の一部のみ test
+          p 対応状況:ルールブックⅠの一般索引と魔法索引の一部のみ
           hr
-          p 2023.05.24 スマホ表示最適化
-          p 2023.05.24 データ目次追加
-          p 2023.05.19 kindleのページを開けるように ※iphoneでは動作しません。Kindleの仕様上既に本が開かれてると正しく動作しません。
-          p 2023.05.19 アクセス制限設定
+          p 2023.05.24 データ目次追加、スマホ表示最適化、本の表記をアイコン化、それに伴い複数の本に同一の内容が含まれる際に同じカードに表示、サンプル追加
+          p 2023.05.19 アクセス制限設定、kindleのページを開けるように ※iphoneでは動作しません。Kindleの仕様上既に本が開かれてると正しく動作しません。
           p 2023.05.18 公開
 
       .index-tree 
@@ -30,21 +28,21 @@ html
           li.index-tree__item
             span.index-tree__ttl 魔法
             ul.index-tree__list
-              li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=251").index-tree__link 真語魔法 ... <img src="img/251.svg"> 248
-              li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=257").index-tree__link 操霊魔法 ... <img src="img/251.svg"> 254
-              li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=263").index-tree__link 神聖魔法 ... <img src="img/251.svg"> 260
+              li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=251").index-tree__link 真語魔法 ... <img class="icon" src="img/251.svg"> 248
+              li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=257").index-tree__link 操霊魔法 ... <img class="icon" src="img/251.svg"> 254
+              li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=263").index-tree__link 神聖魔法 ... <img class="icon" src="img/251.svg"> 260
                 ul.index-tree__list
-                  li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=269").index-tree__link 始祖神ライフォス ... <img src="img/251.svg"> 266
-                  li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=269").index-tree__link 太陽神ティダン ... <img src="img/251.svg"> 266
-                  li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=270").index-tree__link 賢神キルヒア ... <img src="img/251.svg"> 267
+                  li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=269").index-tree__link 始祖神ライフォス ... <img class="icon" src="img/251.svg"> 266
+                  li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=269").index-tree__link 太陽神ティダン ... <img class="icon" src="img/251.svg"> 266
+                  li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=270").index-tree__link 賢神キルヒア ... <img class="icon" src="img/251.svg"> 267
           li.index-tree__item
             span.index-tree__ttl サンプル
             ul.index-tree__list
-              li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=251").index-tree__link 基本ルールブック2.5 Ⅰ ... <img src="img/251.svg"> 000
-              li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=257").index-tree__link 基本ルールブック2.5 Ⅱ ... <img src="img/252.svg"> 000
-              li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=263").index-tree__link 基本ルールブック2.5 Ⅲ ... <img src="img/253.svg"> 000
+              li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=251").index-tree__link 基本ルールブック2.5 Ⅰ ... <img class="icon" src="img/251.svg"> 000
+              li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=257").index-tree__link 基本ルールブック2.5 Ⅱ ... <img class="icon" src="img/252.svg"> 000
+              li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=263").index-tree__link 基本ルールブック2.5 Ⅲ ... <img class="icon" src="img/253.svg"> 000
 
       input(type="text", id="searchInput", placeholder="検索...")
       .result-box
-        #bookContainer
+        #dataContainer
     script(src="script.js")

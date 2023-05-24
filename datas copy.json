@@ -2016,10 +2016,24 @@
       "kindle":"&asin=B07M8FCQZ2&location=["
   },
   {
-      "heading": "【】",
+      "heading": "サンプルデータ1",
       "title": "SW2.5 ルールブックⅠ",
-      "pages": [],
-      "tags": ["魔法索引","魔法"],
+      "pages": [123,999],
+      "tags": ["サンプル"],
+      "kindle":"&asin=B07M8FCQZ2&location=["
+  },
+  {
+      "heading": "サンプルデータ3",
+      "title": "SW2.5 ルールブックⅢ",
+      "pages": [999],
+      "tags": ["サンプル"],
+      "kindle":"&asin=B07M8FCQZ2&location=["
+  },
+  {
+      "heading": "サンプルデータ4",
+      "title": "ナンカノサプリメント",
+      "pages": [999],
+      "tags": ["サンプル"],
       "kindle":"&asin=B07M8FCQZ2&location=["
   }
 ]
