@@ -1,6 +1,9 @@
 doctype html
 html
   head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
     title SW2.5 索引検索
     link(rel="stylesheet", href="https://unpkg.com/ress/dist/ress.min.css")
     link(rel="preconnect", href="https://fonts.googleapis.com")
@@ -15,6 +18,7 @@ html
         .update-log__body
           p 対応状況:ルールブックⅠの一般索引と魔法索引の一部のみ test
           hr
+          p 2023.05.24 スマホ表示最適化
           p 2023.05.24 データ目次追加
           p 2023.05.19 kindleのページを開けるように ※iphoneでは動作しません。Kindleの仕様上既に本が開かれてると正しく動作しません。
           p 2023.05.19 アクセス制限設定
@@ -41,5 +45,6 @@ html
               li.index-tree__item: a(href="kindle://book?action=open&asin=B07M8FCQZ2&location=263").index-tree__link 基本ルールブック2.5 Ⅲ ... <img src="img/253.svg"> 000
 
       input(type="text", id="searchInput", placeholder="検索...")
-      #bookContainer
+      .result-box
+        #bookContainer
     script(src="script.js")

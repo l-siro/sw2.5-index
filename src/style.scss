@@ -22,7 +22,6 @@ a:hover {
   color: #555;
   max-width: 1000px;
   margin: 0 auto;
-  min-height: calc(100vh + 100px);
 }
 
 h1 {
@@ -34,15 +33,16 @@ h1 {
     -10px -10px 15px #e9eff7;
 }
 h2 {
-  font-size: 2rem;
+  margin-top: 40px;
+  font-size: 2.4rem;
 }
 
 .index-tree {
-  margin-left: 1.5em;
   font-size: 1.6rem;
   margin-bottom: 40px;
   &__list {
     margin-top: .8em;
+    margin-left: 1.5em;
   }
   &__ttl {
     display: inline-block;
@@ -99,8 +99,10 @@ h2 {
     -10px -10px 15px #e9eff7;
 }
 
+.result-box {
+  min-height: 100vh;
+}
 #bookContainer {
-  max-width: 1200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -118,6 +120,13 @@ h2 {
     -10px -10px 15px #e9eff7;
   padding: 2% 5%;
   font-size: 1.2rem;
+  @media screen and (max-width:425px) {
+    max-width: 47.5%;
+  }
+  &__ttl {
+    font-size: 2rem;
+    text-align: left;
+  }
   &__ttl,
   &__book,
   &__pages,

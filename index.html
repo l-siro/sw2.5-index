@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SW2.5 索引検索</title>
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +19,7 @@
         <div class="update-log__body">
           <p>対応状況:ルールブックⅠの一般索引と魔法索引の一部のみ test</p>
           <hr>
+          <p>2023.05.24 スマホ表示最適化</p>
           <p>2023.05.24 データ目次追加</p>
           <p>2023.05.19 kindleのページを開けるように ※iphoneでは動作しません。Kindleの仕様上既に本が開かれてると正しく動作しません。</p>
           <p>2023.05.19 アクセス制限設定</p>
@@ -47,7 +51,9 @@
         </ul>
       </div>
       <input type="text" id="searchInput" placeholder="検索...">
-      <div id="bookContainer"></div>
+      <div class="result-box">
+        <div id="bookContainer"></div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
